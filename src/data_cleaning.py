@@ -429,3 +429,50 @@ for col, n_null in null_summary.items():
     pct = n_null / len(master) * 100
     print(f"  {col:<45} {n_null:>8,} ({pct:5.1f}%)")
 
+# %%
+print('Section 13 RFM')
+print('='*60)
+
+order_level = (
+    master
+    .groupby(['customer_unique_id','order_id', 'order_purchase_timestamp', 'customer_state'])
+    .agg(
+        order_value = ('payment_value', 'first'),
+        review_score = ('review_score', 'first'),
+    ).reset_index()
+)
+
+print(f"   Order level shaped : {order_level.shape}")
+
+rfm_base = (
+    order_level
+    .groupby(['customer_unique_id', 'customer_state'])
+    .agg(
+        total_orders     = ('order_id' ,'nunique'),
+        total_spend      = ( 'order_value', 'sum'),
+        avg_order_value  = ('order_value', 'mean'),
+        first_order      = ('order_purchase_timestamp','min'),
+        last_order       =('order_purchase_timestamp', 'max'),
+        avg_review       = ('review_score', 'mean'),
+    ).reset_index()
+)
+
+reference_date    = master['order_purchase_timestamp'].max() + pd.Timedelta(days=1)
+rfm_base['recency_days'] = (reference_date - rfm_base['last_order']).dt.days
+rfm_base['tenure_days'] = (rfm_base['last_order'] - rfm_base['first_order']).dt.days
+
+print(f"  Customer-level shape: {rfm_base.shape}")
+print(f"  customer summary stats:")
+print(f" Total Unique customers: {rfm_base.shape[0]:,}")
+print(f" Customer with 1 order: {(rfm_base['total_orders'] == 1).sum():,}"
+      f"({(rfm_base['total_orders'] == 1).mean()*100:.1f}%)")
+print(f" cUSTOMER WITH 2+ ORDERS : {(rfm_base['total_orders'] >= 2).sum():,}"
+      f"({(rfm_base['total_orders'] >= 2).mean()*100:.1f}%)")
+print('='*30)
+print(f"Spend stats")
+print(f"Min spend: {rfm_base['total_spend'].min():>10.2f}")
+print(f"Mean spend: {rfm_base['total_spend'].mean():>10.2f}")
+print(f"Median spend: {rfm_base['total_spend'].median():>10.2f}")
+print(f"Max spend: {rfm_base['total_spend'].max():>10.2f}")
+
+print('RFM BASE TABLE BUILT MMHM🦾')
