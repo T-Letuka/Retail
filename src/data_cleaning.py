@@ -289,3 +289,74 @@ print(f" Top 10 sellers states")
 print(sellers_slim['seller_state'].value_counts().head(10).to_string())
 print(f"Final slim shape {sellers_slim.shape}")
 print('Sellers table cleaned')
+
+# %%
+
+print('Section 10 BUILIDING THE MASTER DATASET')
+print('='*60)
+
+def join_and_track(left, right, on , how='left', step_name=' '):
+    before = len(left)
+    result = left.merge(right, on=on, how=how)
+    after = len(result)
+    change = after - before
+    symbol = "↑" if change > 0 else ('↓' if change < 0 else '=')
+    dupes = result.duplicated(subset=on).sum()
+    print(f" After joining {step_name:<20} {before:>8} → {after:>8,} rows {symbol}{abs(change):,}")
+    print(f"Duplicates on key: {dupes:,}")
+    return  result
+
+
+master = join_and_track(
+    orders,
+    items[['order_id', 'product_id', 'seller_id','price','freight_value']],
+    on='order_id',
+    how='left',
+    step_name='items'
+)
+
+master = join_and_track(
+    master,
+    reviews_slim,
+    on='order_id',
+    how='left',
+    step_name='reviews'
+    )
+master = join_and_track(
+    master,
+    products_slim,
+    on='product_id',
+    how='left',
+    step_name='products'
+)
+
+master = join_and_track(
+    master,
+    customers[['customer_id', 'customer_unique_id', 'customer_city', 'customer_state']],
+    on='customer_id',
+    how='left',
+    step_name='customers'
+)
+
+master = join_and_track(
+    master,
+    payment_agg,
+    on='order_id',
+    how='left',
+    step_name='payment'
+)
+
+master = join_and_track(
+    master,
+    sellers_slim,
+    on='seller_id',
+    how='left',
+    step_name='sellers'
+)
+
+print(f" Final master shape: {master.shape}")
+print(f"master columns : ({master.shape[1]} total):")
+for i , col in enumerate(master.columns,1):
+    print(f"     {i:>2}. {col:<45} {str(master[col].dtype)}")
+
+print('Dataset built ')
