@@ -360,3 +360,37 @@ for i , col in enumerate(master.columns,1):
     print(f"     {i:>2}. {col:<45} {str(master[col].dtype)}")
 
 print('Dataset built ')
+
+# %% 
+print('Section 11 Feature ENGINEERING')
+print('='*60)
+
+master['order_month'] = master['order_purchase_timestamp'].dt.to_period('M')
+master['order_yeah']  = master['order_purchase_timestamp'].dt.year
+master['order_dayofweek'] = master['order_purchase_timestamp'].dt.dayofweek
+
+print('TIME COLUMNS CREATED')
+
+master['delivery_delay_days'] = (
+    master['order_delivered_customer_date'] -
+    master['order_estimated_delivery_date']
+).dt.days
+
+delivered_count = master['order_status'] .eq('delivered').sum()
+delay_available = master['delivery_delay_days'].notna().sum()
+print(f"   delivery delay days: {delay_available:,} values"
+      f"({delay_available/delivered_count*100:.1f}% of delivered orders)")
+
+master['total_item_value'] = master['price'] + master['freight_value']
+
+print(f" done")
+
+master['was_late'] = master['delivery_delay_days'] > 0
+
+late_pct = master['was_late'].mean() * 100
+print(f" was late {late_pct:.1f}% of delivered orders were late")
+
+print('Feature engineering complete')
+
+#%% 
+
