@@ -476,3 +476,17 @@ print(f"Median spend: {rfm_base['total_spend'].median():>10.2f}")
 print(f"Max spend: {rfm_base['total_spend'].max():>10.2f}")
 
 print('RFM BASE TABLE BUILT MMHM🦾')
+
+# %%
+master_path = '../data/processed/master.csv'
+master.to_csv(master_path, index=False)
+
+print('master file saved')
+print(f" shape : {master.shape}")
+
+rfm_path = '../data/processed/rfm_base.csv'
+rfm_base.to_csv(rfm_path, index=False)
+print('rfm saved')
+print(f" shape {rfm_base.shape}")
+
+print()
