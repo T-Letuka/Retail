@@ -394,3 +394,38 @@ print('Feature engineering complete')
 
 #%% 
 
+print('Section 12 vALIDATION')
+print('='*60)
+
+print(f"   Shape   {master.shape[0]:,} rows x {master.shape[1]} columns")
+
+key_cols = ['order_id', 'customer_id', 'customer_unique_id']
+print(f"   Key Column null checks:")
+all_good = True
+for col in key_cols:
+    nulls = master[col].isnull().sum()
+    status = "✔" if nulls == 0 else "❌ PROBLEM"
+    print(f"    {col:<35} nulls: {nulls:,} {status}")
+    if nulls > 0:
+        all_good = False
+    
+
+total_revenue = master['payment_value'].sum()
+print(f"Total  payment sum: {total_revenue:,.2f}")
+
+
+min_date = master['order_purchase_timestamp'].min()
+max_date = master['order_purchase_timestamp'].max()
+print(f"Ealiest order: {min_date}")
+print(f"latest order {max_date}")
+
+print(f"  Order status distribution")
+print(master['order_status'].value_counts().to_string())
+
+print('Missing values')
+null_summary = master.isnull().sum()
+null_summary = null_summary[null_summary > 0].sort_values(ascending=False)
+for col, n_null in null_summary.items():
+    pct = n_null / len(master) * 100
+    print(f"  {col:<45} {n_null:>8,} ({pct:5.1f}%)")
+
