@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "Retail",
+			"uri": "vscode-remote://wsl+ubuntu/mnt/c/Users/tiset/Desktop/Retail"
+		}
+	],
+	"remoteAuthority": "wsl+Ubuntu",
+	"settings": {
+		"python.REPL.enableREPLSmartSend": false
+	}
+}
