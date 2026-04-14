@@ -1,6 +1,6 @@
 # RetailLens — From Transactions to Intelligence
 
-> A complete data product built on 100,000 real e-commerce transactions —  
+> A complete data product built on 100,000 real e-commerce transactions   
 > demonstrating the full analyst → scientist → ML engineer → deployment pipeline.
 
 ---
@@ -13,7 +13,7 @@
 | 📓 Act 1 — Data Analysis Notebook | [`notebooks/01_exploratory_analysis.ipynb`](notebooks/01_exploratory_analysis.ipynb) |
 | 📓 Act 2 — Statistical Analysis | [`notebooks/02_statistical_analysis.ipynb`](notebooks/02_statistical_analysis.ipynb) *(coming soon)* |
 | 📓 Act 3 — Machine Learning | [`notebooks/03_machine_learning.ipynb`](notebooks/03_machine_learning.ipynb) *(coming soon)* |
-| 🚀 Live Dashboard | *Deploying after Act 3* |
+| 🚀 Live Dashboard | (https://retaildashboardtl.streamlit.app/) |
 
 ---
 
