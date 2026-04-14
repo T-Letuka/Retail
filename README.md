@@ -11,8 +11,8 @@
 |---|---|
 | 📄 Executive Report (Non-Technical) | [`outputs/RetailLens_Executive_Report.pdf`](outputs/Executive%20Report.pdf) |
 | 📓 Act 1 — Data Analysis Notebook | [`notebooks/01_exploratory_analysis.ipynb`](notebooks/01_exploratory_analysis.ipynb) |
-| 📓 Act 2 — Statistical Analysis | [`notebooks/02_statistical_analysis.ipynb`](notebooks/02_statistical_analysis.ipynb) *(coming soon)* |
-| 📓 Act 3 — Machine Learning | [`notebooks/03_machine_learning.ipynb`](notebooks/03_machine_learning.ipynb) *(coming soon)* |
+| 📓 Act 2 — Statistical Analysis | [`notebooks/02_statistical_analysis.ipynb`](notebooks/02_statistical_analysis.ipynb)
+| 📓 Act 3 — Machine Learning | [`notebooks/03_machine_learning.ipynb`](notebooks/03_Churn_model.ipynb) 
 | 🚀 Live Dashboard | (https://retaildashboardtl.streamlit.app/) |
 
 ---
@@ -42,7 +42,7 @@ making it rich enough to support analysis across every dimension of a retail bus
 
 ---
 
-## Act 1 — Data Analysis ✅
+## Act 1 : Data Analysis ✅
 
 **Role demonstrated:** Data Analyst  
 **Notebook:** [`notebooks/01_exploratory_analysis.ipynb`](notebooks/01_exploratory_analysis.ipynb)  
@@ -119,7 +119,7 @@ average basket value, category diversity, and average review score given.
 
 ---
 
-## Act 3 — Machine Learning ⏳ *(Coming Soon)*
+## Act 3 — Machine Learning ⏳ 
 
 **Role demonstrated:** ML Engineer  
 **Notebook:** [`notebooks/03_machine_learning.ipynb`](notebooks/03_machine_learning.ipynb)
