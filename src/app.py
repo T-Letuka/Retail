@@ -1,10 +1,3 @@
-"""
-RetailLens — Streamlit Dashboard
-Act 4: Deployment
-=================
-Run locally:  streamlit run dashboard/app.py
-Deploy:       Streamlit Community Cloud (free)
-"""
 
 import streamlit as st
 import pandas as pd
