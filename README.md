@@ -18,11 +18,11 @@ Open it on your phone. No setup. No code. Just the product.
 
 | | |
 |---|---|
-| 🚀 Live Dashboard | [retaildashboardtl.streamlit.app](https://retaildashboardtl.streamlit.app/) |
-| 📓 Act 1 - Data Analysis | [`notebooks/01_exploratory_analysis.ipynb`](notebooks/01_exploratory_analysis.ipynb) |
-| 📓 Act 2 - Statistical Analysis | [`notebooks/02_statistical_analysis.ipynb`](notebooks/02_statistical_analysis.ipynb) |
-| 📓 Act 3 - Machine Learning | [`notebooks/03_Churn_model.ipynb`](notebooks/03_Churn_model.ipynb) |
-| 📄 Executive Report | [`outputs/RetailLens_Executive_Report.pdf`](outputs/RetailLens_Executive_Report.pdf) |
+| 📄 Executive Report (Non-Technical) | [`outputs/RetailLens_Executive_Report.pdf`](outputs/Executive%20Report.pdf) |
+| 📓 Act 1 — Data Analysis Notebook | [`notebooks/01_exploratory_analysis.ipynb`](notebooks/01_exploratory_analysis.ipynb) |
+| 📓 Act 2 — Statistical Analysis | [`notebooks/02_statistical_analysis.ipynb`](notebooks/02_statistical_analysis.ipynb) *(coming soon)* |
+| 📓 Act 3 — Machine Learning | [`notebooks/03_machine_learning.ipynb`](notebooks/03_machine_learning.ipynb) *(coming soon)* |
+| 🚀 Live Dashboard | *Deploying after Act 3* |
 
 ---
 
@@ -51,7 +51,7 @@ The project is structured as **four progressive acts**, each demonstrating a dis
 
 ---
 
-## Act 1 — Data Analysis ✅
+## Act 1 : Data Analysis ✅
 
 **Role:** Data Analyst
 **Notebook:** [`01_exploratory_analysis.ipynb`](notebooks/01_exploratory_analysis.ipynb)
@@ -110,7 +110,7 @@ With 96,000 customers, even negligible real-world differences become statistical
 
 ---
 
-## Act 3 — Machine Learning ✅
+## Act 3 — Machine Learning ⏳ *(Coming Soon)*
 
 **Role:** ML Engineer
 **Notebook:** [`03_Churn_model.ipynb`](notebooks/03_Churn_model.ipynb)
@@ -296,18 +296,27 @@ openpyxl>=3.1.0
 
 ---
 
-## About
+## Skills Demonstrated
 
-**Tisetso Letuka**
-BSc Biomedical Science · Anatomical Pathology Honours (cum laude) · Front-End Development · Data Science
-
-Transitioning toward computational biology with a foundation in data science.
-This project demonstrates the full analyst-to-deployment pipeline on a real-world dataset 
-not a tutorial, not a Kaggle notebook, a product.
-
-*South Africa*
+| Skill | Where |
+|-------|-------|
+| Multi-table data engineering | `00_data_cleaning.ipynb` |
+| Exploratory data analysis | `01_exploratory_analysis.ipynb` |
+| Business communication | `outputs/RetailLens_Executive_Report.pdf` |
+| RFM customer segmentation | `01_exploratory_analysis.ipynb` — Analysis 5 |
+| Statistical hypothesis testing | `02_statistical_analysis.ipynb` *(coming)* |
+| Feature engineering | `02_statistical_analysis.ipynb` *(coming)* |
+| Classification + class imbalance | `03_machine_learning.ipynb` *(coming)* |
+| Model explainability (SHAP) | `03_machine_learning.ipynb` *(coming)* |
+| Model serialisation + serving | `03_machine_learning.ipynb` *(coming)* |
+| Interactive dashboard deployment | `dashboard/app.py` *(coming)* |
 
 ---
 
-*Dataset: Brazilian E-Commerce by Olist — [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) CC BY-NC-SA 4.0*
-*Dashboard: [retaildashboardtl.streamlit.app](https://retaildashboardtl.streamlit.app/)*
+## About
+
+Built by **Tisetso Letuka**  
+Biomedical Science (BSc) · Pathology Honours (cum laude) · 
+Transitioning toward computational biology with a foundation in data science and full-stack development.
+
+*This project is part of a portfolio designed to demonstrate the full data analyst → data scientist → ML engineer pipeline on a single real-world dataset.*
