@@ -28,7 +28,7 @@ Open it on your phone. No setup. No code. Just the product.
 
 ## What Is This Project?
 
-RetailLens takes 100,000 real orders from **Olist** — Brazil's largest department store marketplace — and builds a complete data product from raw transactions to a deployed prediction tool.
+RetailLens takes 100,000 real orders from **Olist**  Brazil's largest department store marketplace  and builds a complete data product from raw transactions to a deployed prediction tool.
 
 The project is structured as **four progressive acts**, each demonstrating a distinct professional capability using the same dataset and codebase.
 
